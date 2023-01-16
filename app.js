@@ -1,8 +1,6 @@
 const express = require ('express')
-
-const app = express()
-
 const cookieParser = require('cookie-parser')
+const app = express()
 
 app.use(express.json())
 app.use(cookieParser())
@@ -22,29 +20,41 @@ app.post('/sginUP',(req, res) => {
      })
 
 //회원정보 한명 가져오기
-app.get("/user",(req, res) =>{
-   console.log(req.params)
+app.get("/users/:userID",(req, res) =>{
+   const {userID} = req.params
+   console.log(userID)
+   res.send("userget")
 })
 
 //게시글 리스트 가져오기
-app.get('/lists',(req, res) =>{
-   console.log(req,params)
+app.get('/posts',(req, res) =>{
+   const userlist = {
+      "user":"test01",
+      "contents":"contest"
+   }
+   console.log(userlist)
+   res.send(userlist)
 })
 
-//게시글 리스트 상세 가져오기
-app.get('/listDetail',(req,res)=>{
+//선택 게시글 리스트 상세 가져오기
+app.get('/posts/:post',(req,res)=>{
    console.log(req.params)
+   res.send(req.params)
 })
 
-
-app.post("/list create",(req, res) => {
-   
+//게시글 작성
+app.post("/lists",(req, res) => {
+   const {title, username} = req.body
+   console(title, username)
+   res.send(title, username)
    })
    
-app.post("/list update",(req, res) => {
+//게시글 수정   
+app.post("/lists/update",(req, res) => {
     
    })
 
+//게시글 삭제
 app.post("/list delete",(req, res) => {
    
    })
