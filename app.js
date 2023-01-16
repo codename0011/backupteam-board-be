@@ -57,7 +57,7 @@ app.post("/lists/:userID/update",(req, res) => {
    })
 
 //게시글 삭제
-app.delete("/lists/delete",(req, res) => {
+app.delete("/lists/:userID/delete",(req, res) => {
    const {userID} = req.body
    console.log(req.body)
    res.send(삭제완료)
