@@ -55,7 +55,7 @@ app.post("/lists/update",(req, res) => {
    })
 
 //게시글 삭제
-app.post("/list delete",(req, res) => {
+app.post("/lists/delete",(req, res) => {
    
    })
 
