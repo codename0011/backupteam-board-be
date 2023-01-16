@@ -23,40 +23,44 @@ app.post('/sginUP',(req, res) => {
 app.get("/users/:userID",(req, res) =>{
    const {userID} = req.params
    console.log(userID)
-   res.send("userget")
+   res.send("회원정보")
 })
 
 //게시글 리스트 가져오기
-app.get('/posts',(req, res) =>{
+app.get('/lists',(req, res) =>{
    const userlist = {
       "user":"test01",
       "contents":"contest"
    }
    console.log(userlist)
-   res.send(userlist)
+   res.send(게시글리스트)
 })
 
 //선택 게시글 리스트 상세 가져오기
-app.get('/posts/:post',(req,res)=>{
+app.get('/lists/:listID',(req,res)=>{
    console.log(req.params)
-   res.send(req.params)
+   res.send(게시글리스트(상세))
 })
 
 //게시글 작성
-app.post("/lists",(req, res) => {
+app.post("/lists/create",(req, res) => {
    const {title, username} = req.body
-   console(title, username)
-   res.send(title, username)
+   console.log(title, username)
+   res.send(게시글작성)
    })
    
-//게시글 수정   
-app.post("/lists/update",(req, res) => {
-    
+//게시글 수정
+app.post("/lists/:userID/update",(req, res) => {
+   const {title, userID} = req.body
+   console.log(req.body)
+   res.send(수정완료)
    })
 
 //게시글 삭제
-app.post("/lists/delete",(req, res) => {
-   
+app.delete("/lists/delete",(req, res) => {
+   const {userID} = req.body
+   console.log(req.body)
+   res.send(삭제완료)
    })
 
 app.listen(3000,() => {
