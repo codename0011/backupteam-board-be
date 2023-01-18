@@ -50,12 +50,6 @@ const users = [
 //console.log(moviestitle)
 
 //Looney Tunes: Back in Action 라는 movie_title 을 가진 게시물의 작성자의 이메일을 가져온다.
-const [movietitle] = movies.map(movie => {
-    if(movie.movie_title === 'Looney Tunes: Back in Action'){
-        return movie.user_id
-    }
-}).filter(e => e)
-
-     const useremail = users.find( user => user.id === movietitle)
-     const Email = useremail.email
-     console.log(Email)
+const findmovie = movies.find( movie =>movie.movie_title === 'Looney Tunes: Back in Action').user_id
+const user = users.find(user => user.id === findmovie).email
+console.log(user)
