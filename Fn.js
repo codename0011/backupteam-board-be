@@ -26,7 +26,7 @@ const 가격format = (가격, 나라) => {
     const 나라code = 나라 || "kr"
     const CUR = cur통화[나라code]
     
-    const 가격KRW = new Intl.NumberFormat(CUR.format, { style: 'currency', currency: CUR.currency }).format(가격)
+    const 가격s = new Intl.NumberFormat(CUR.format, { style: 'currency', currency: CUR.currency }).format(가격)
 
     let 세금 = 가격 / 11 * 10
     세금 = Math.round(세금)
@@ -38,7 +38,7 @@ const 가격format = (가격, 나라) => {
 
 
     return {
-    가격KRW,
+    가격s,
     세금,
     원가,
     }
